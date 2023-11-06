@@ -1,10 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe CreateSalaryDependecesWorker, type: :worker do
-  let!(:proponent) { create(:proponent) }
-  
   it 'worker is enqueued in the default queue' do
-    expect(described_class).to receive(:perform_async).once
+  expect(described_class).to receive(:perform_async)
     described_class.perform_async
     expect(described_class.queue.to_sym).to eq(:base)
   end

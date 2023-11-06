@@ -22,7 +22,7 @@
 #
 #  fk_rails_...  (address_id => addresses.id)
 #
-require "cpf_cnpj"
+require 'cpf_cnpj'
 
 FactoryBot.define do
   factory :proponent do

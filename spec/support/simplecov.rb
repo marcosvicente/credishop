@@ -3,5 +3,4 @@ if ENV['RAILS_ENV'] == 'test'
   SimpleCov.start do
     add_filter %r{^/test/}
   end
-  puts "required simplecov"
 end

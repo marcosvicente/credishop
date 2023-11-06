@@ -9,7 +9,7 @@ class InssCreateSalaryService
 
   def call
     inss = InssCalculationService.new(proponent: @proponent).call
-    return errors.add(:base, "Not saved salary") unless inss.success?
+    return errors.add(:base, 'Not saved salary') unless inss.success?
 
     save_proponent_inss_value(inss)
   end

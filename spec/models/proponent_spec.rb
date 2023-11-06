@@ -29,18 +29,19 @@ RSpec.describe Proponent, type: :model do
   it { is_expected.to have_many(:phone).class_name('Phone') }
 
   subject(:proponent) { build(:proponent) }
+  
   it { is_expected.to validate_presence_of(:cpf) }
   it { is_expected.to validate_presence_of(:name) }
   it { is_expected.to validate_presence_of(:salary) }
 
-  context ".cpf" do
-    it "sould be valid with valid cpf" do
+  context '.cpf' do
+    it 'be valid with valid cpf' do
       proponent.cpf = CPF.generate
       expect(proponent).to be_valid
     end
 
-    it "sould be invalid with not valid cpf" do
-      proponent.cpf = "11111111111"
+    it 'be invalid with not valid cpf' do
+      proponent.cpf = '11111111111'
       expect(proponent).to be_invalid
     end
   end

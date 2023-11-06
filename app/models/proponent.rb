@@ -22,7 +22,7 @@
 #
 #  fk_rails_...  (address_id => addresses.id)
 #
-require "cpf_cnpj"
+require 'cpf_cnpj'
 
 class Proponent < ApplicationRecord
   paginates_per 5
@@ -42,7 +42,7 @@ class Proponent < ApplicationRecord
   after_create :create_salary_dependeces
 
   def valid_cpf?
-    errors.add("CPF não e valido") unless CPF.valid?(self.cpf) 
+    errors.add('CPF não e valido') unless CPF.valid?(self.cpf) 
   end
 
   def create_salary_dependeces

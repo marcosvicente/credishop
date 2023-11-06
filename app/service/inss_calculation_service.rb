@@ -42,7 +42,7 @@ class InssCalculationService
       return get_maxium_value_from_inss
     end
 
-    errors.add(:base, "Not calculated salary") if inss.blank?
+    errors.add(:base, 'Not calculated salary') if inss.blank?
 
     inss[0]
   end

@@ -26,7 +26,7 @@ class ProponentsController < ApplicationController
     @proponent = Proponent.new(proponent_params)
 
     if @proponent.save
-        redirect_to proponent_url(@proponent), notice: "Proponent was successfully created."
+        redirect_to proponent_url(@proponent), notice: 'Proponent was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
@@ -37,7 +37,7 @@ class ProponentsController < ApplicationController
   def update
     respond_to do |format|
       if @proponent.update(proponent_params)
-        format.html { redirect_to proponent_url(@proponent), notice: "Proponent was successfully updated." }
+        format.html { redirect_to proponent_url(@proponent), notice: 'Proponent was successfully updated.' }
         format.json { render :show, status: :ok, location: @proponent }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -52,7 +52,7 @@ class ProponentsController < ApplicationController
     @proponent.destroy
 
     respond_to do |format|
-      format.html { redirect_to proponents_url, notice: "Proponent was successfully destroyed." }
+      format.html { redirect_to proponents_url, notice: 'Proponent was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

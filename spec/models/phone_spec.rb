@@ -23,5 +23,6 @@ RSpec.describe Phone, type: :model do
   it { is_expected.to belong_to(:proponent).class_name('Proponent') }
 
   subject(:phone) { build(:phone) }
+  
   it { is_expected.to validate_presence_of(:number) }
 end
