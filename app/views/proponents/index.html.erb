@@ -1,0 +1,36 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <h1>Proponents</h1>
+
+  <div id="proponents">
+     <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Name</th>
+          <th scope="col">Birth Date</th>
+          <th scope="col">Cpf</th>
+          <th scope="col">Salary</th>
+          <th scope="col" colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+      <% @proponents.each do |proponent| %>
+        <tr>
+          <td scope="row"><%= proponent.id %></td>
+          <td><%= proponent.name %></td>
+          <td><%= proponent.birth_date %></td>
+          <td><%= proponent.cpf %></td>
+          <td><%= proponent.salary %></td>
+          <td> <%= link_to "Show", proponent %></td>
+          <td> <%= link_to "Destroy", proponent_path(proponent), method: :delete %></td>
+        </tr>
+       <% end %>
+      </tbody>
+    </table>
+    <%= paginate @proponents, class: "d-flex"%>
+  </div>
+
+  <%= link_to "New proponent", new_proponent_path, class: "btn btn-primary" %>
+</div>

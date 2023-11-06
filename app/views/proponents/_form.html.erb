@@ -1,0 +1,71 @@
+  <%= form_with(model: proponent) do |form| %>
+<div class="row justify-content-md-center">
+    <div class="col col-md-6">
+      <div class="card-custom mb-3">
+        <div class="card-header">
+          <h2>Proponent</h2>
+        </div>
+        <div class="card-body">
+          <% if proponent.errors.any? %>
+            <div style="color: red">
+              <h2><%= pluralize(proponent.errors.count, "error") %> prohibited this proponent from being saved:</h2>
+
+              <ul>
+                <% proponent.errors.each do |error| %>
+                  <li><%= error.full_message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="mb-3">
+            <%= form.label :name, class: "form-label" %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :cpf, class: "form-label" %>
+            <%= form.text_field :cpf, class: "form-control"%>
+          </div>
+
+          <div class="mb-3">
+            <%= form.label :birth_date, class: "form-label" %>
+            <%= form.text_field :birth_date, class: "form-control"%>
+          </div class="mb-3">
+
+          <div class="mb-3">
+            <%= form.label :salary, class: "form-label" %>
+            <%= form.text_field :salary, class: "form-control"%>
+          </div>
+
+            <%= form.fields_for :phone do |form| %>
+            <%= render "phone_fields", :form => form %>
+          <% end %>
+          <%= link_to_add_nested(form, :phone, '#phone', link_classes: 'btn btn-primary') %>
+        </div>
+      </div>
+    </div>
+
+    <div class="col col-md-6">
+      <div class="card-custom mb-3">
+        <div class="card-header">
+          <h2>Address</h2>
+        </div>
+        <div class="card-body">
+          <%= form.fields_for :address_attributes do |form| %>
+            <%= render "address_fields", :form => form %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+   
+     
+
+       
+
+    <div class="mb-3">
+      <%= form.submit class: "btn btn-primary"%>
+    </div>
+</div>
+  <% end %>

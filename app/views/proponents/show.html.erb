@@ -1,0 +1,20 @@
+<div class="container">
+  <p style="color: green"><%= notice %></p>
+
+  <div class="row justify-content-md-center">
+    <div class="col col-md-6">
+      <div class="card-custom mb-3">
+        <div class="card-header">
+          <h2>Proponent</h2>
+        </div>
+        <div class="card-body">
+          <%= render @proponent %>
+
+          <%= link_to "Edit this proponent", edit_proponent_path(@proponent) %> 
+          <%= link_to "Back to proponents", proponents_path %>
+          <%= button_to "Destroy this proponent", @proponent, method: :delete %>
+        <div>
+      </div>
+    </div> 
+  </div> 
+</div> 

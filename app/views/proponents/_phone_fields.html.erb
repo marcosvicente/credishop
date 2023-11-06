@@ -1,0 +1,19 @@
+<div class="card-custom mb-3 mt-5"  id='phone'>
+  <div class="card-header">
+    <h2>Phone</h2>
+  </div>
+   <div class="card-body">
+    <div class="mb-3">
+      <%= link_to_remove_nested(form, link_classes: 'btn btn-danger error_nexted') %>
+    </div>
+    <div class="mb-3">
+      <%= form.label :number, class: "form-label" %>
+      <%= form.text_field :number, class: "form-control"%>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :reference, class: "form-label" %>
+      <%= form.text_field :reference, class: "form-control"%>
+    </div>
+  </div>
+</div>
