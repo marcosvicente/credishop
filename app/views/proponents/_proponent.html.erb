@@ -14,12 +14,12 @@
 
       <p>
         <strong>Address:</strong>
-        <%= proponent.address_id %>
+        <%= proponent.address.street %>
       </p>
 
       <p>
         <strong>Birth date:</strong>
-        <%= proponent.birth_date %>
+        <%= proponent.birth_date.strftime("%d/%m/%Y") %>
       </p>
        <p>
         <strong>Salary:</strong>
@@ -27,15 +27,15 @@
       </p>
       <p>
         <strong>Inss Dedution:</strong>
-        <%= proponent.inss_dedution %>
+        <%= number_to_currency(proponent.inss_dedution) %>
       </p>
       <p>
         <strong>Inss aliquot:</strong>
-        <%= proponent.inss_aliquot %>
+        <%= number_to_percentage(proponent.inss_aliquot, precision: 1) %>
       </p>
       <p>
         <strong>Inss Liquid Salary :</strong>
-        <%= proponent.inss_liquid_salary %>
+        <%= number_to_currency(proponent.inss_liquid_salary) %>
       </p>
       
     </div>

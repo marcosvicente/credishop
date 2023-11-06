@@ -46,7 +46,6 @@ class Proponent < ApplicationRecord
   end
 
   def create_salary_dependeces
-    InssCreateSalaryService.new(proponent: self).call
-    # CreateSalaryDependecesWorker.perform_async(self.id)
+    CreateSalaryDependecesWorker.perform_async(self.id)
   end
 end

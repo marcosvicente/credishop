@@ -1,5 +1,6 @@
 <div class="container">
   <p style="color: green"><%= notice %></p>
+  <%= link_to "Back to relatory", relatory_index_path %>
 
   <h1>Proponents</h1>
 
@@ -20,7 +21,7 @@
         <tr>
           <td scope="row"><%= proponent.id %></td>
           <td><%= proponent.name %></td>
-          <td><%= proponent.birth_date %></td>
+          <td><%= proponent.birth_date.strftime("%d/%m/%Y") %></td>
           <td><%= proponent.cpf %></td>
           <td><%= number_to_currency(proponent.salary) %></td>
           <td> <%= link_to "Show", proponent %></td>

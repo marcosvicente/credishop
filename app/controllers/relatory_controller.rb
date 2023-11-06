@@ -1,7 +1,8 @@
 class RelatoryController < ApplicationController
   def index
-    @data_keys = Inss.order(:aliquot).pluck(:aliquot)
+    aliquot = Inss.order(:aliquot).pluck(:aliquot)
+    @data_keys = Inss.order(:aliquot).pluck(:from, :to)
     proponent = Proponent.group(:inss_aliquot).count
-    @data_values =@data_keys.collect{|d| proponent[d]}
+    @data_values = aliquot.collect{|d| proponent[d]}
   end
 end

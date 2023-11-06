@@ -1,4 +1,4 @@
 :queues:
-  - default
+  - base
 
 :backtrace: true
