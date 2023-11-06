@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_03_130456) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_06_123119) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -21,6 +21,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_03_130456) do
     t.string "city"
     t.string "state"
     t.string "cep"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "insses", force: :cascade do |t|
+    t.float "aliquot", null: false
+    t.float "from", null: false
+    t.float "to"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -38,10 +46,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_03_130456) do
     t.string "name"
     t.string "cpf"
     t.bigint "address_id", null: false
-    t.string "birth_date"
-    t.float "salary"
+    t.date "birth_date"
+    t.decimal "salary", precision: 8, scale: 2
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "inss_dedution"
+    t.float "inss_aliquot"
+    t.float "inss_liquid_salary"
     t.index ["address_id"], name: "index_proponents_on_address_id"
   end
 

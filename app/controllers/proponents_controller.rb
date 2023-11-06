@@ -48,6 +48,7 @@ class ProponentsController < ApplicationController
 
   # DELETE /proponents/1 or /proponents/1.json
   def destroy
+    @proponent.phone.destroy_all
     @proponent.destroy
 
     respond_to do |format|

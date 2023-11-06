@@ -1,0 +1,2 @@
+module RelatoryHelper
+end

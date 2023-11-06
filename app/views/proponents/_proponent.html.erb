@@ -21,12 +21,23 @@
         <strong>Birth date:</strong>
         <%= proponent.birth_date %>
       </p>
-
-      <p>
+       <p>
         <strong>Salary:</strong>
-        <%= proponent.salary %>
+        <%= number_to_currency(proponent.salary) %>
       </p>
-
+      <p>
+        <strong>Inss Dedution:</strong>
+        <%= proponent.inss_dedution %>
+      </p>
+      <p>
+        <strong>Inss aliquot:</strong>
+        <%= proponent.inss_aliquot %>
+      </p>
+      <p>
+        <strong>Inss Liquid Salary :</strong>
+        <%= proponent.inss_liquid_salary %>
+      </p>
+      
     </div>
   </div>
 </div>

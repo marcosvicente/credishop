@@ -91,13 +91,19 @@ RSpec.describe "/proponents", type: :request do
       it "updates the requested proponent" do
         patch proponent_url(proponent), params: { proponent: proponent_attr }
         proponent.reload
-        skip("Add assertions for updated state")
+        expect(proponent)
+        expect(proponent.birth_date).to eq(proponent_attr[:birth_date])
+        expect(proponent.cpf).to eq(proponent_attr[:cpf])
+        expect(proponent.name).to eq(proponent_attr[:name])
+        expect(proponent.salary).to eq(proponent_attr[:salary])
       end
 
       it "redirects to the proponent" do
         patch proponent_url(proponent), params: { proponent: proponent_attr }
         proponent.reload
         expect(response).to redirect_to(proponent_url(proponent))
+
+
       end
     end
 

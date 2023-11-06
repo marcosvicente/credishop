@@ -5,8 +5,8 @@ class CreateProponents < ActiveRecord::Migration[7.0]
       t.string :cpf
       t.references :address, null: false, foreign_key: true
       t.date :birth_date
-      t.float :salary
-
+      t.decimal :salary, precision: 8, scale: 2
+      
       t.timestamps
     end
   end

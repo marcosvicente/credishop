@@ -2,14 +2,17 @@
 #
 # Table name: proponents
 #
-#  id         :bigint           not null, primary key
-#  birth_date :string
-#  cpf        :string
-#  name       :string
-#  salary     :float
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  address_id :bigint           not null
+#  id                 :bigint           not null, primary key
+#  birth_date         :date
+#  cpf                :string
+#  inss_aliquot       :float
+#  inss_dedution      :float
+#  inss_liquid_salary :float
+#  name               :string
+#  salary             :decimal(8, 2)
+#  created_at         :datetime         not null
+#  updated_at         :datetime         not null
+#  address_id         :bigint           not null
 #
 # Indexes
 #
@@ -35,8 +38,15 @@ class Proponent < ApplicationRecord
   validates :salary, presence: true
 
   validate :valid_cpf?
-  
+ 
+  after_create :create_salary_dependeces
+
   def valid_cpf?
     errors.add("CPF não e valido") unless CPF.valid?(self.cpf) 
+  end
+
+  def create_salary_dependeces
+    InssCreateSalaryService.new(proponent: self).call
+    # CreateSalaryDependecesWorker.perform_async(self.id)
   end
 end

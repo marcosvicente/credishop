@@ -22,7 +22,7 @@
           <td><%= proponent.name %></td>
           <td><%= proponent.birth_date %></td>
           <td><%= proponent.cpf %></td>
-          <td><%= proponent.salary %></td>
+          <td><%= number_to_currency(proponent.salary) %></td>
           <td> <%= link_to "Show", proponent %></td>
           <td> <%= link_to "Destroy", proponent_path(proponent), method: :delete %></td>
         </tr>
